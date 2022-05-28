@@ -40,7 +40,7 @@ public class Peer2PeerClient {
                             out.println("exit");
                         }
                     });
-            System.out.println("Connected to server with port " + socket.getLocalPort());
+            System.out.println("Connected to server using " + socket.getLocalAddress().getHostAddress() + " : " + socket.getLocalPort());
             out.println(socket.getLocalSocketAddress());
             UUID uuid = UUID.fromString(in.readLine());
             System.out.println("My uuid : " + uuid.toString());

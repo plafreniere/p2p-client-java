@@ -23,11 +23,11 @@ public class PunchThrough implements Runnable {
         InetSocketAddress address = peer.getAddress();
         InetSocketAddress privateAddress = peer.getPrivateAddress();
 
-        System.out.println("Connecting to : " +  address.getHostName() + ":" + address.getPort());
+        System.out.println("Connecting to : " +  address.getAddress().getHostAddress() + ":" + address.getPort());
         System.out.println("From " + (address.getPort()) + " to " + (address.getPort() + portsToTest));
 
         for(int test = portsToTest; test > 0; test--) {
-            InetSocketAddress tempAddr = new InetSocketAddress(address.getHostName(), (address.getPort() + test));
+            InetSocketAddress tempAddr = new InetSocketAddress(address.getAddress().getHostAddress(), (address.getPort() + test));
             try {
                 new Thread(new Attempt(this, tempAddr)).start();
 

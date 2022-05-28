@@ -14,10 +14,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-        if(!args[0].isEmpty()) {
+        if(args.length > 0) {
             relayHost = args[0];
         }
-        if(!args[1].isEmpty()) {
+        if(args.length > 1) {
             port = Integer.parseInt(args[1]);
         }
         Peer2PeerClient client = new Peer2PeerClient(relayHost, port);
